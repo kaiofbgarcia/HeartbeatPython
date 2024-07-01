@@ -33,10 +33,22 @@ class MainApp(App):
         self.frame_num = 0
 
         self.layout = BoxLayout(orientation='vertical')
-        self.image = Image()
+        self.header = Label(text="Heartbeat Monitor", size_hint=(1, 0.1),
+                            color=(1, 1, 1, 1), font_size='20sp', bold=True)
+        
+        self.image = Image(size_hint=(1, 0.8))
+        self.label = Label(text="Starting...", size_hint=(1, 0.1),
+                           color=(0, 0, 0, 1), font_size='20sp')
+        
+        self.footer = Label(text="by Baby Smartcare", size_hint=(1, 0.1),
+                            color=(1, 1, 1, 1), font_size='16sp', bold=True)
+
         self.label = Label(text="Starting...")
+        self.layout.add_widget(self.header)
         self.layout.add_widget(self.image)
         self.layout.add_widget(self.label)
+        self.layout.add_widget(self.footer)
+        
 
         Clock.schedule_interval(self.update, 1.0 / 30.0)
         
